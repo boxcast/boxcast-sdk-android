@@ -75,10 +75,11 @@ public class BoxCastClient {
 
     /**
      * Gets a detailed broadcast.
+     * @param channelId The channel id.
      * @param broadcastId The broadcast id.
      * @param callback The callback to be called when finished loading the broadcast.
      */
-    public void getBroadcast(String broadcastId, final BoxCastCallback<Broadcast> callback) {
+    public void getBroadcast(final String channelId, String broadcastId, final BoxCastCallback<Broadcast> callback) {
         Request request = new Request.Builder()
                 .url(apiUrl + "/broadcasts/" + broadcastId)
                 .get()
@@ -99,7 +100,7 @@ public class BoxCastClient {
                 try {
                     String responseData = response.body().string();
                     JSONObject object = new JSONObject(responseData);
-                    final Broadcast broadcast = new Broadcast(object);
+                    final Broadcast broadcast = new Broadcast(channelId, object);
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -167,7 +168,7 @@ public class BoxCastClient {
         });
     }
 
-    private void findBroadcasts(String channelId, String query, final BoxCastCallback<BroadcastList> callback) {
+    private void findBroadcasts(final String channelId, String query, final BoxCastCallback<BroadcastList> callback) {
         @SuppressWarnings("ConstantConditions")
         HttpUrl url = HttpUrl.parse(apiUrl + "/channels/" + channelId + "/broadcasts")
                 .newBuilder()
@@ -193,7 +194,7 @@ public class BoxCastClient {
                 try {
                     String responseData = response.body().string();
                     JSONArray array = new JSONArray(responseData);
-                    final BroadcastList list = new BroadcastList(array);
+                    final BroadcastList list = new BroadcastList(channelId, array);
 
                     runOnUiThread(new Runnable() {
                         @Override

@@ -42,6 +42,7 @@ class BroadcastsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public void onClick(View v) {
             Intent intent = new Intent(itemView.getContext(), BroadcastActivity.class);
             intent.putExtra(BroadcastActivity.EXTRA_BROADCAST_ID, mBroadcast.getId());
+            intent.putExtra(BroadcastActivity.EXTRA_CHANNEL_ID, mBroadcast.getChannelId());
             itemView.getContext().startActivity(intent);
         }
     }

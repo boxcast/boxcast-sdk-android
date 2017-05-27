@@ -19,9 +19,11 @@ import com.boxcast.android.view.BoxCastVideoView;
 public class MediaPlayerActivity extends AppCompatActivity {
 
     public static final String EXTRA_BROADCAST_ID = "com.boxcast.demo.EXTRA_BROADCAST_ID";
+    public static final String EXTRA_CHANNEL_ID= "com.boxcast.demo.EXTRA_CHANNEL_ID";
 
     private BoxCastVideoView mVideoView;
     private String mBroadcastId;
+    private String mChannelId;
     private BoxCastClient mClient;
     private Broadcast mBroadcast;
     private BroadcastView mBroadcastView;
@@ -39,8 +41,9 @@ public class MediaPlayerActivity extends AppCompatActivity {
         controller.setAnchorView(mVideoView);
         mVideoView.setMediaController(controller);
 
-        // Get the Intent that started this activity and extract the broadcast id.
+        // Get the Intent that started this activity and extract the broadcast and channel id.
         mBroadcastId = getIntent().getStringExtra(MediaPlayerActivity.EXTRA_BROADCAST_ID);
+        mChannelId = getIntent().getStringExtra(MediaPlayerActivity.EXTRA_CHANNEL_ID);
 
         mClient = BoxCastClient.getInstance();
 
@@ -65,7 +68,7 @@ public class MediaPlayerActivity extends AppCompatActivity {
     }
 
     private void loadBroadcast() {
-        mClient.getBroadcast(mBroadcastId, new BoxCastCallback<Broadcast>() {
+        mClient.getBroadcast(mChannelId, mBroadcastId, new BoxCastCallback<Broadcast>() {
             @Override
             public void onSuccess(Broadcast result) {
                 mBroadcast = result;

@@ -21,8 +21,10 @@ import com.facebook.drawee.view.SimpleDraweeView;
 public class BroadcastActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String EXTRA_BROADCAST_ID = "com.boxcast.demo.BROADCAST_ID";
+    public static final String EXTRA_CHANNEL_ID = "com.boxcast.demo.CHANNEL_ID";
 
     private String mBroadcastId;
+    private String mChannelId;
     private BoxCastClient mClient;
     private SimpleDraweeView mImageView;
     private TextView mDescriptionTextView;
@@ -39,9 +41,10 @@ public class BroadcastActivity extends AppCompatActivity implements View.OnClick
         mPlayButton = (Button) findViewById(R.id.playButton);
         mPlayButton.setOnClickListener(this);
 
-        // Get the Intent that started this activity and extract the broadcast id.
+        // Get the Intent that started this activity and extract the broadcast and channel id.
         Intent intent = getIntent();
         mBroadcastId = intent.getStringExtra(BroadcastActivity.EXTRA_BROADCAST_ID);
+        mChannelId = intent.getStringExtra(BroadcastActivity.EXTRA_CHANNEL_ID);
 
         mClient = BoxCastClient.getInstance();
 
@@ -59,7 +62,7 @@ public class BroadcastActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void loadBroadcast() {
-        mClient.getBroadcast(mBroadcastId, new BoxCastCallback<Broadcast>() {
+        mClient.getBroadcast(mChannelId, mBroadcastId, new BoxCastCallback<Broadcast>() {
             @Override
             public void onSuccess(Broadcast result) {
                 mBroadcast = result;
@@ -80,6 +83,7 @@ public class BroadcastActivity extends AppCompatActivity implements View.OnClick
         if (v == mPlayButton) {
             Intent intent = new Intent(this, MediaPlayerActivity.class);
             intent.putExtra(MediaPlayerActivity.EXTRA_BROADCAST_ID, mBroadcast.getId());
+            intent.putExtra(MediaPlayerActivity.EXTRA_CHANNEL_ID, mBroadcast.getChannelId());
             startActivity(intent);
         }
     }

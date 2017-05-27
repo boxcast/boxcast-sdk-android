@@ -70,11 +70,11 @@ mClient.getArchivedBroadcasts("YOUR_CHANNEL_ID", new BoxCastCallback<BroadcastLi
 
 ```java
 mClient = BoxCastClient.getInstance();
-mClient.getBroadcast("BROADCAST_ID", new BoxCastCallback<Broadcast>() {
+mClient.getBroadcast("CHANNEL_ID", "BROADCAST_ID", new BoxCastCallback<Broadcast>() {
 
     @Override
     public void onSuccess(Broadcast result) {
-        // Do something special with the detailed brodcast.
+        // Do something special with the detailed broadcast.
     }
 
     @Override
@@ -89,11 +89,11 @@ mClient.getBroadcast("BROADCAST_ID", new BoxCastCallback<Broadcast>() {
 
 ```java
 mClient = BoxCastClient.getInstance();
-mClient.getBroadcast("BROADCAST_ID", new BoxCastCallback<Broadcast>() {
+mClient.getBroadcastView("BROADCAST_ID", new BoxCastCallback<Broadcast>() {
 
     @Override
     public void onSuccess(Broadcast result) {
-        // Do something special with the detailed brodcast.
+        // Do something special with the broadcast view.
     }
 
     @Override

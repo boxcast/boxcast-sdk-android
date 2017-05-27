@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void getBroadcasts() {
+        if (CHANNEL_ID == "YOUR_CHANNEL_ID") {
+            throw new RuntimeException("change CHANNEL_ID to your actual channel ID");
+        }
+
         mClient.getLiveBroadcasts(CHANNEL_ID, new BoxCastCallback<BroadcastList>() {
 
             @Override

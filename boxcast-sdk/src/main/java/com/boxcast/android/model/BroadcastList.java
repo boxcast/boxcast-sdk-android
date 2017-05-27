@@ -18,11 +18,11 @@ public class BroadcastList {
 
     private ArrayList<Broadcast> mBroadcasts;
 
-    public BroadcastList(JSONArray array) throws JSONException {
+    public BroadcastList(String channelId, JSONArray array) throws JSONException {
         mBroadcasts = new ArrayList<>();
         for (int i = 0; i < array.length(); ++i) {
             JSONObject obj = array.getJSONObject(i);
-            Broadcast broadcast = new Broadcast(obj);
+            Broadcast broadcast = new Broadcast(channelId, obj);
             mBroadcasts.add(broadcast);
         }
     }

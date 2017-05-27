@@ -24,13 +24,13 @@ public class Broadcast {
     private String mChannelId;
     private Uri mThumbnailUri;
 
-    public Broadcast(JSONObject object) throws JSONException {
+    public Broadcast(String channelId, JSONObject object) throws JSONException {
         mId = object.getString("id");
         mName = object.getString("name");
         mDescription = object.getString("description");
         String thumbnailUriString = object.getString("preview");
         mThumbnailUri = Uri.parse(thumbnailUriString);
-        mChannelId = object.getString("channel_id");
+        mChannelId = channelId;
         if (object.has("account_id")) {
             mAccountId = object.getString("account_id");
         }
