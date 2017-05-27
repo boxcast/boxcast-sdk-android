@@ -12,7 +12,7 @@ import com.boxcast.android.model.BroadcastList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final String CHANNEL_ID="hbk5jnhapr0pdqluujtd";
+    private final String CHANNEL_ID="YOUR_CHANNEL_ID";
     private BroadcastsAdapter mAdapter;
     private BoxCastClient mClient;
 
