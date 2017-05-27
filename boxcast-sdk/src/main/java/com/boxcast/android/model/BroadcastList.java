@@ -6,10 +6,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-/**
- * Created by camdenfullmer on 5/17/17.
- */
+//
+// BoxCast SDK for Android
+// Created by camdenfullmer on 5/17/17.
+//
 
+/**
+ * Class represents a list of BoxCast broadcasts.
+ */
 public class BroadcastList {
 
     private ArrayList<Broadcast> mBroadcasts;
@@ -23,6 +27,10 @@ public class BroadcastList {
         }
     }
 
+    /**
+     * Returns the list of broadcasts.
+     * @return ArrayList
+     */
     public ArrayList<Broadcast> getBroadcasts() {
         return mBroadcasts;
     }

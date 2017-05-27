@@ -4,9 +4,10 @@ import android.util.Log;
 
 import org.json.JSONObject;
 
-/**
- * Created by camdenfullmer on 5/24/17.
- */
+//
+// BoxCast SDK for Android
+// Created by camdenfullmer on 5/24/17.
+//
 
 public class TimeMetric extends Metric {
 

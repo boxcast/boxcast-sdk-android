@@ -7,10 +7,14 @@ import android.support.annotation.Nullable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by camdenfullmer on 5/17/17.
- */
+//
+// BoxCast SDK for Android
+// Created by camdenfullmer on 5/17/17.
+//
 
+/**
+ * Class represents a BoxCast broadcast.
+ */
 public class Broadcast {
 
     private String mId;
@@ -32,26 +36,50 @@ public class Broadcast {
         }
     }
 
+    /**
+     * Returns the name for a broadcast.
+     * @return String
+     */
     public @NonNull String getName() {
         return mName;
     }
 
+    /**
+     * Returns the description for a broadcast.
+     * @return String
+     */
     public @NonNull String getDescription() {
         return mDescription;
     }
 
+    /**
+     * Returns the ID for the broadcast.
+     * @return String
+     */
     public @NonNull String getId() {
         return mId;
     }
 
+    /**
+     * Returns the thumbnail URI for the broadcast.
+     * @return Uri
+     */
     public @NonNull Uri getThumbnailUri() {
         return mThumbnailUri;
     }
 
+    /**
+     * Returns the channel ID for the broadcast.
+     * @return String
+     */
     public @NonNull String getChannelId() {
         return mChannelId;
     }
 
+    /**
+     * Returns the account ID for the broadcast.
+     * @return String
+     */
     public @Nullable String getAccountId() {
         return mAccountId;
     }

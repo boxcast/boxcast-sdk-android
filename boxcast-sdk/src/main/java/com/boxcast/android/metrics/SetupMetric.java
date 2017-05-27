@@ -11,9 +11,10 @@ import com.boxcast.client.android.BuildConfig;
 
 import org.json.JSONObject;
 
-/**
- * Created by camdenfullmer on 5/24/17.
- */
+//
+// BoxCast SDK for Android
+// Created by camdenfullmer on 5/24/17.
+//
 
 public class SetupMetric extends Metric {
 

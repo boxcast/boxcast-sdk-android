@@ -21,10 +21,18 @@ import com.boxcast.android.model.BroadcastView;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * Created by camdenfullmer on 5/24/17.
- */
+//
+// BoxCast SDK for Android
+// Created by camdenfullmer on 5/24/17.
+//
 
+/**
+ * Displays a BoxCast broadcast. This class is a subclass of VideoView that knows how to handle a
+ * broadcast and broadcast view resource.
+ *
+ * In order to play a broadcast use the setBroadcast(Broadcast) and setBroadcastView(BroadcastView)
+ * methods and then call start(). Please note that a fully detailed Broadcast must be used.
+ */
 public class BoxCastVideoView extends VideoView implements MediaPlayer.OnCompletionListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnVideoSizeChangedListener {
 
     private MetricsConsumer mMetricsConsumer;

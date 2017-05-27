@@ -10,9 +10,10 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-/**
- * Created by camdenfullmer on 5/24/17.
- */
+//
+// BoxCast SDK for Android
+// Created by camdenfullmer on 5/24/17.
+//
 
 class Metric {
 

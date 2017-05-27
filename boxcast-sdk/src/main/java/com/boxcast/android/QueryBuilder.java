@@ -1,8 +1,9 @@
 package com.boxcast.android;
 
-/**
- * Created by camdenfullmer on 5/17/17.
- */
+//
+// BoxCast SDK for Android
+// Created by camdenfullmer on 5/17/17.
+//
 
 class QueryBuilder {
 

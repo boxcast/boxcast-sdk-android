@@ -21,9 +21,10 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-/**
- * Created by camdenfullmer on 5/24/17.
- */
+//
+// BoxCast SDK for Android
+// Created by camdenfullmer on 5/24/17.
+//
 
 public class MetricsConsumer {
 

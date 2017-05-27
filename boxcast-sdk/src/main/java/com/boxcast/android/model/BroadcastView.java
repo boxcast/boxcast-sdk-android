@@ -5,12 +5,19 @@ import android.net.Uri;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by camdenfullmer on 5/18/17.
- */
+//
+// BoxCast SDK for Android
+// Created by camdenfullmer on 5/18/17.
+//
 
+/**
+ * Class represents a view into a BoxCast broadcast.
+ */
 public class BroadcastView {
 
+    /**
+     * Enum represents the different states for a broadcast view.
+     */
     public enum Status {
         UPCOMING, PREPARING, PREPARED, CATCHING_UP, STALLED, STALLED_LIVE, LIVE,
         NOT_RECORDED, PROCESSING_RECORDING, RECORDED
@@ -26,6 +33,10 @@ public class BroadcastView {
         mPlaylistUri = Uri.parse(playlistUriString);
     }
 
+    /**
+     * Returns the HLS playlist URI for the view.
+     * @return Uri
+     */
     public Uri getPlaylistUri() {
         return mPlaylistUri;
     }
@@ -58,6 +69,10 @@ public class BroadcastView {
         throw new JSONException("unknown status string: " + string);
     }
 
+    /**
+     * Returns the status for the view.
+     * @return View.Status
+     */
     public Status getStatus() {
         return mStatus;
     }

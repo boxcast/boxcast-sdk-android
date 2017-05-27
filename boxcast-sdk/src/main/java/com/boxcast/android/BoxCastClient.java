@@ -21,10 +21,14 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * Created by camdenfullmer on 5/17/17.
- */
+//
+// BoxCast SDK for Android
+// Created by camdenfullmer on 5/17/17.
+//
 
+/**
+ * Use this class to make remote calls to the BoxCast API endpoint.
+ */
 public class BoxCastClient {
 
     private static BoxCastClient instance = null;
@@ -34,6 +38,10 @@ public class BoxCastClient {
     private BoxCastClient() {
     }
 
+    /**
+     * Use this method to get the singleton instance for making API calls.
+     * @return The singleton instance.
+     */
     public static BoxCastClient getInstance() {
         if (instance == null) {
             instance = new BoxCastClient();
@@ -41,6 +49,11 @@ public class BoxCastClient {
         return instance;
     }
 
+    /**
+     * Gets the live broadcasts for a channel.
+     * @param channelId The channel id to list broadcasts from.
+     * @param callback The callback to be called when finished loading the broadcasts.
+     */
     public void getLiveBroadcasts(String channelId, final BoxCastCallback<BroadcastList> callback) {
         QueryBuilder builder = new QueryBuilder();
         builder.append(QueryBuilder.Logic.OR, "timeframe", "current");
@@ -48,6 +61,11 @@ public class BoxCastClient {
         findBroadcasts(channelId, query, callback);
     }
 
+    /**
+     * Gets the archived broadcasts for a channel.
+     * @param channelId The channel id to list broadcasts from.
+     * @param callback The callback to be called when finished loading the broadcasts.
+     */
     public void getArchivedBroadcasts(String channelId, final BoxCastCallback<BroadcastList> callback) {
         QueryBuilder builder = new QueryBuilder();
         builder.append(QueryBuilder.Logic.OR, "timeframe", "past");
@@ -55,6 +73,11 @@ public class BoxCastClient {
         findBroadcasts(channelId, query, callback);
     }
 
+    /**
+     * Gets a detailed broadcast.
+     * @param broadcastId The broadcast id.
+     * @param callback The callback to be called when finished loading the broadcast.
+     */
     public void getBroadcast(String broadcastId, final BoxCastCallback<Broadcast> callback) {
         Request request = new Request.Builder()
                 .url(apiUrl + "/broadcasts/" + broadcastId)
@@ -97,6 +120,11 @@ public class BoxCastClient {
         });
     }
 
+    /**
+     * Gets a view into a broadcast.
+     * @param broadcastId The broadcast id.
+     * @param callback The callback to be called when finished loading the broadcast view.
+     */
     public void getBroadcastView(String broadcastId, final BoxCastCallback<BroadcastView> callback) {
         Request request = new Request.Builder()
                 .url(apiUrl + "/broadcasts/" + broadcastId + "/view")
