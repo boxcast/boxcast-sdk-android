@@ -20,7 +20,7 @@ Add the library as a dependency in your `build.gradle` file.
 
 ```groovy
 dependencies {
-    compile 'com.boxcast.android:android-sdk:0.1'
+    implementation 'com.boxcast.android:boxcast-sdk:0.1.0'
 }
 ```
 
