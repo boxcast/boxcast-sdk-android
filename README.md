@@ -31,7 +31,7 @@ If the build fails with a `NoClassDefFoundError`
 Add in the Project `build.gradle(projectName)` file:
 
 ```groovy
-allproject {
+allprojects {
     repositories {
         maven {
             url 'com.boxcast.android:boxcast-sdk:0.1.0'
@@ -40,7 +40,7 @@ allproject {
 }
 ```
 
-And comment out Project `settings.gradle` (Gradle 6.8+) :
+And comment out of Project `settings.gradle` (Gradle 6.8+) :
 
 ```groovy
 // dependencyResolutionManagement {
