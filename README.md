@@ -11,17 +11,48 @@ The official BoxCast SDK for integrating with the BoxCast API on Android.
 
 ## Requirements
 
-- Android 15+
-- Android Studio 2.3+
+- Android 11(SDK 30)+
+- Android Studio 3.2+
 
 ## Installation
 
-Add the library as a dependency in your `build.gradle` file.
+Add the library as a dependency in the App `build.gradle(:app)` file:
 
 ```groovy
 dependencies {
     implementation 'com.boxcast.android:boxcast-sdk:0.1.0'
 }
+```
+
+## Gradle 7.5 Configuration Additions
+**Updated 20221013
+
+If the build fails with a `NoClassDefFoundError`
+Add in the Project `build.gradle(projectName)` file:
+
+```groovy
+allproject {
+    repositories {
+        maven {
+            url 'com.boxcast.android:boxcast-sdk:0.1.0'
+        }
+    }
+}
+```
+
+And comment out Project `settings.gradle` (Gradle 6.8+) :
+
+```groovy
+// dependencyResolutionManagement {
+//   repositoriesMade.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//   repositories {...} } 
+```
+[see Gradle Dependency Management](https://docs.gradle.org/6.8/release-notes.html#dependency-management-improvements)
+
+Add `enableJetifier` flag in Project `gradle.properties`: 
+
+```groovy
+android.enableJetifier=true
 ```
 
 ## Usage
