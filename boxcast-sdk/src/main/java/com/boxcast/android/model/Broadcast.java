@@ -1,8 +1,7 @@
 package com.boxcast.android.model;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.*
 
 import org.json.JSONException;
 import org.json.JSONObject;
