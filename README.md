@@ -1,5 +1,7 @@
 # BoxCast SDK for Android
 
+**This repository is no longer being maintained or supported. Please use at your own risk.**
+
 The official BoxCast SDK for integrating with the BoxCast API on Android.
 
 ## Features
